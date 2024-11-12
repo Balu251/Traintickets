@@ -7,4 +7,3 @@ spring:
     mongodb:
       auto-index-creation: true
       uri: mongodb://localhost:27017/notifications_db
-
