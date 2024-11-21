@@ -1,27 +1,35 @@
-package com.example.UserService.dto;
+package com.example.UserService.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class UserDTO {
+@Document(collection = "users") // MongoDB collection name
+public class User {
 
+    @Id
     private String id;
+
     private String username;
+    private String password;
     private String email;
     private String phoneNumber;
     private String fullName;
     private String gender;
     private String address;
+    private boolean isAdmin;
 
     // Constructors
-    public UserDTO() {}
+    public User() {}
 
-    public UserDTO(String id, String username, String email, String phoneNumber, String fullName, String gender, String address) {
-        this.id = id;
+    public User(String username, String password, String email, String phoneNumber, String fullName, String gender, String address, boolean isAdmin) {
         this.username = username;
+        this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.fullName = fullName;
         this.gender = gender;
         this.address = address;
+        this.isAdmin = isAdmin;
     }
 
 	public String getId() {
@@ -38,6 +46,14 @@ public class UserDTO {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -80,6 +96,15 @@ public class UserDTO {
 		this.address = address;
 	}
 
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+
     // Getters and Setters
+    
     
 }
