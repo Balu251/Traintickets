@@ -1,11 +1,13 @@
 package com.example.UserService.dto;
 
+import com.example.UserService.entity.User;
 
 public class UserDTO {
 
     private String id;
     private String username;
     private String email;
+    private String password;
     private String phoneNumber;
     private String fullName;
     private String gender;
@@ -30,6 +32,15 @@ public class UserDTO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getUsername() {
@@ -81,5 +92,39 @@ public class UserDTO {
 	}
 
     // Getters and Setters
+	
+	public static UserDTO mapToUserDTO(User user) {
+		
+		UserDTO userDTO=new UserDTO();
+		
+		userDTO.setAddress(user.getAddress());
+		userDTO.setPassword(user.getPassword());
+		userDTO.setEmail(user.getEmail());
+		userDTO.setFullName(user.getFullName());
+		userDTO.setGender(user.getGender());
+		userDTO.setId(user.getId());
+		userDTO.setPhoneNumber(user.getPhoneNumber());
+		userDTO.setUsername(user.getUsername());
+		
+		return userDTO;
+		
+		
+	}
+	
+	public static User mapToUser(UserDTO userDTO) {
+		
+		User user=new User();
+		
+		user.setAddress(userDTO.getAddress());
+		user.setEmail(userDTO.getEmail());
+		user.setPassword(userDTO.getPassword());
+		user.setFullName(userDTO.getFullName());
+		user.setGender(userDTO.getGender());
+		user.setId(userDTO.getId());
+		user.setPhoneNumber(userDTO.getPhoneNumber());
+		user.setUsername(userDTO.getUsername());
+		
+		return user;
+	}
     
 }
