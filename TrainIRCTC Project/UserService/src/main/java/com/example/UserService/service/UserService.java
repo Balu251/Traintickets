@@ -1,8 +1,6 @@
 package com.example.UserService.service;
 
 
-import java.util.Optional;
-
 import com.example.UserService.dto.LoginDTO;
 import com.example.UserService.dto.UserDTO;
 import com.example.UserService.entity.User;
